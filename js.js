@@ -1,4 +1,3 @@
-<!-- Update the date in the JavaScript code -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script>
   window.addEventListener('load', () => {
@@ -18,10 +17,12 @@
 
     function init() {
       // Update the date to January 20, 2024
-      totalSeconds = Math.floor((new Date('01/20/2024') - new Date()) / 1000);
+      const targetDate = new Date('01/20/2024');
+      totalSeconds = Math.floor((targetDate - new Date()) / 1000);
       setTimeLeft();
+      printTime(); // Added to display the initial time immediately
       let interval = setInterval(() => {
-        if (totalSeconds < 0) {
+        if (totalSeconds <= 0) {
           clearInterval(interval);
         }
         countTime();
@@ -43,9 +44,9 @@
             }
           }
         }
+        --totalSeconds;
+        printTime();
       }
-      --totalSeconds;
-      printTime();
     }
 
     function printTime() {
@@ -56,7 +57,7 @@
     }
 
     function animateFlip(element, value) {
-      const valueInDom = element.querySelector('.bottom-back').innerText;
+      const valueInDom = element.querySelector('.bottom-back span').innerText;
       const currentValue = value < 10 ? '0' + value : '' + value;
 
       if (valueInDom === currentValue) return;

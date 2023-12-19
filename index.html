@@ -6,25 +6,56 @@
   <title>Countdown to January 20, 2024</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
       text-align: center;
       margin: 50px;
     }
 
     h1 {
-      font-size: 4em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
     #countdown {
-      font-size: 2em;
+      font-size: 1.5em;
       margin-top: 20px;
+      color: #333;
       transition: color 0.5s ease-in-out;
+    }
+
+    #calendar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .calendar-item {
+      margin: 0 10px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #ddd;
+      transition: transform 0.5s ease-in-out;
     }
   </style>
 </head>
 <body>
 
   <h1>Countdown to January 20, 2024</h1>
+  <div id="calendar">
+    <div class="calendar-item" id="days">00</div>
+    <div class="calendar-item">:</div>
+    <div class="calendar-item" id="hours">00</div>
+    <div class="calendar-item">:</div>
+    <div class="calendar-item" id="minutes">00</div>
+    <div class="calendar-item">:</div>
+    <div class="calendar-item" id="seconds">00</div>
+  </div>
   <p id="countdown">Iki kelionės liko: </p>
 
   <script>
@@ -44,7 +75,10 @@
 
       // Display the countdown
       const countdownElement = document.getElementById('countdown');
-      countdownElement.textContent = `Iki kelionės liko: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdownElement.textContent = `Iki kelionės liko: `;
+
+      // Update the calendar display
+      updateCalendar(days, hours, minutes, seconds);
 
       // Change color randomly
       const randomColor = getRandomColor();
@@ -56,6 +90,19 @@
 
     // Initial update
     updateCountdown();
+
+    // Function to update the calendar display
+    function updateCalendar(days, hours, minutes, seconds) {
+      document.getElementById('days').textContent = formatTime(days);
+      document.getElementById('hours').textContent = formatTime(hours);
+      document.getElementById('minutes').textContent = formatTime(minutes);
+      document.getElementById('seconds').textContent = formatTime(seconds);
+    }
+
+    // Function to format time values with leading zeros
+    function formatTime(time) {
+      return time < 10 ? `0${time}` : time;
+    }
 
     // Function to generate a random color
     function getRandomColor() {

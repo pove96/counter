@@ -1,1 +1,53 @@
-Sveiki
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to January 20, 2024</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #countdown {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Countdown to January 20, 2024</h1>
+  <p id="countdown">Iki kelionės liko: </p>
+
+  <script>
+    // Set the target date
+    const targetDate = new Date('January 20, 2024 00:00:00 GMT+0000');
+
+    function updateCountdown() {
+      // Calculate the time difference
+      const currentDate = new Date();
+      const timeDifference = targetDate - currentDate;
+
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      // Display the countdown
+      const countdownElement = document.getElementById('countdown');
+      countdownElement.textContent = `Iki kelionės liko: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+
+    // Initial update
+    updateCountdown();
+  </script>
+
+</body>
+</html>

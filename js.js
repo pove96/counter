@@ -1,3 +1,34 @@
+
+  // Create a variable to hold the YouTube video player
+  let player;
+
+  function onYouTubeIframeAPIReady() {
+    // Create the YouTube video player
+    player = new YT.Player('video-container', {
+      height: '100%',
+      width: '100%',
+      videoId: 'EzGPmg4fFL8', // Replace with your video ID
+      playerVars: {
+        autoplay: 1, // Autoplay the video
+        controls: 0, // Hide video controls
+        loop: 1, // Loop the video
+        mute: 1, // Mute the video
+        modestbranding: 1, // Show minimal YouTube branding
+        playsinline: 1, // Play the video inline on mobile
+      },
+      events: {
+        onReady: onPlayerReady,
+      },
+    });
+  }
+
+  function onPlayerReady(event) {
+    // Uncomment the line below if you want the video to start playing immediately
+    // event.target.playVideo();
+  }
+
+
+
 window.addEventListener('load', () => {
   const days = document.querySelector('.days')
   const hours = document.querySelector('.hours')
@@ -91,4 +122,6 @@ window.addEventListener('load', () => {
   }
   
   init();
+
+  
 });

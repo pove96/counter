@@ -14,6 +14,7 @@
           mute: 1,
           modestbranding: 1,
           playsinline: 1,
+          start: 90,
         },
         events: {
           onReady: onPlayerReady,
@@ -22,11 +23,9 @@
     }
 
     function onPlayerReady(event) {
-      // Cue the video with a start time of 90 seconds (1:30)
-      event.target.cueVideoById({
-        videoId: 'EzGPmg4fFL8',
-        startSeconds: 90,
-      });
+      // Uncomment the line below if you want the video to start playing immediately
+      // event.target.playVideo();
+    }
 
 
 

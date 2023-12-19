@@ -14,6 +14,7 @@
           mute: 1,
           modestbranding: 1,
           playsinline: 1,
+          start: 90,
         },
         events: {
           onReady: onPlayerReady,

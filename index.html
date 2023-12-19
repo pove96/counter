@@ -1,119 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown to January 20, 2024</title>
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Frontend Mentor | Launch countdown timer</title>
+
+
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
+    .attribution {
+      font-size: 11px;
       text-align: center;
-      margin: 50px;
     }
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-
-    #countdown {
-      font-size: 1.5em;
-      margin-top: 20px;
-      color: #333;
-      transition: color 0.5s ease-in-out;
-    }
-
-    #calendar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2em;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .calendar-item {
-      margin: 0 10px;
-      padding: 10px;
-      border-radius: 5px;
-      background-color: #ddd;
-      transition: transform 0.5s ease-in-out;
+    .attribution a {
+      color: hsl(228, 45%, 44%);
     }
   </style>
 </head>
+
 <body>
 
-  <h1>Countdown to January 20, 2024</h1>
-  <div id="calendar">
-    <div class="calendar-item" id="days">00</div>
-    <div class="calendar-item">:</div>
-    <div class="calendar-item" id="hours">00</div>
-    <div class="calendar-item">:</div>
-    <div class="calendar-item" id="minutes">00</div>
-    <div class="calendar-item">:</div>
-    <div class="calendar-item" id="seconds">00</div>
-  </div>
-  <p id="countdown">Iki kelionės liko: </p>
+  <section class="upper-section">
 
-  <script>
-    // Set the target date
-    const targetDate = new Date('January 20, 2024 00:00:00 GMT+0000');
+    <h1>We're launching soon</h1>
 
-    function updateCountdown() {
-      // Calculate the time difference
-      const currentDate = new Date();
-      const timeDifference = targetDate - currentDate;
 
-      // Calculate days, hours, minutes, and seconds
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    <div class="countdown">
+      <span class="days time-elem">
+        <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </span>
 
-      // Display the countdown
-      const countdownElement = document.getElementById('countdown');
-      countdownElement.textContent = `Iki kelionės liko: `;
+      <span class="hours time-elem">
+        <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </span>
 
-      // Update the calendar display
-      updateCalendar(days, hours, minutes, seconds);
+      <span class="minutes time-elem">
+        <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </span>
 
-      // Change color randomly
-      const randomColor = getRandomColor();
-      countdownElement.style.color = randomColor;
-    }
+      <span class="seconds time-elem">
+        <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </span>
+    </div>
 
-    // Update the countdown every second
-    setInterval(updateCountdown, 1000);
+    <span class="days" id="days"></span>
+    <span class="hours" id="hours"></span>
+    <span class="minutes" id="minutes"></span>
+    <span class="seconds" id="seconds"></span>
 
-    // Initial update
-    updateCountdown();
+    <img src="./images/bg-stars.svg" alt="">
 
-    // Function to update the calendar display
-    function updateCalendar(days, hours, minutes, seconds) {
-      document.getElementById('days').textContent = formatTime(days);
-      document.getElementById('hours').textContent = formatTime(hours);
-      document.getElementById('minutes').textContent = formatTime(minutes);
-      document.getElementById('seconds').textContent = formatTime(seconds);
-    }
 
-    // Function to format time values with leading zeros
-    function formatTime(time) {
-      return time < 10 ? `0${time}` : time;
-    }
+  </section>
 
-    // Function to generate a random color
-    function getRandomColor() {
-      const letters = '0123456789ABCDEF';
-      let color = '#';
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-  </script>
+  <section class="lower-section">
+
+
+    <div class="icon-wrapper">
+      <a href="https://www.facebook.com/">
+        <img src="./images/icon-facebook.svg" alt="" class="icon">
+      </a>
+      <a href="https://www.pinterest.com/">
+      <img src="./images/icon-pinterest.svg" alt="" class="icon">
+    </a>
+    <a href="https://www.instagram.com/">
+      <img src="./images/icon-instagram.svg" alt="" class="icon">
+    </a>
+    </div>
+
+    <img src="./images/pattern-hills.svg" alt="" class="bg">
+  </section>
+
+
+
+  <script src="./js.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
 </body>
+
 </html>

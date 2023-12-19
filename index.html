@@ -11,9 +11,14 @@
       margin: 50px;
     }
 
+    h1 {
+      font-size: 4em;
+    }
+
     #countdown {
-      font-size: 24px;
+      font-size: 2em;
       margin-top: 20px;
+      transition: color 0.5s ease-in-out;
     }
   </style>
 </head>
@@ -40,6 +45,10 @@
       // Display the countdown
       const countdownElement = document.getElementById('countdown');
       countdownElement.textContent = `Iki kelionės liko: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      // Change color randomly
+      const randomColor = getRandomColor();
+      countdownElement.style.color = randomColor;
     }
 
     // Update the countdown every second
@@ -47,6 +56,16 @@
 
     // Initial update
     updateCountdown();
+
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
   </script>
 
 </body>

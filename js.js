@@ -2,30 +2,29 @@
   // Create a variable to hold the YouTube video player
   let player;
 
-  function onYouTubeIframeAPIReady() {
-    // Create the YouTube video player
-    player = new YT.Player('video-container', {
-      height: '100%',
-      width: '100%',
-      videoId: 'EzGPmg4fFL8', // Replace with your video ID
-      playerVars: {
-        autoplay: 1, // Autoplay the video
-        controls: 0, // Hide video controls
-        loop: 1, // Loop the video
-        mute: 1, // Mute the video
-        modestbranding: 1, // Show minimal YouTube branding
-        playsinline: 1, // Play the video inline on mobile
-      },
-      events: {
-        onReady: onPlayerReady,
-      },
-    });
-  }
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('video-container', {
+        height: '100%',
+        width: '100%',
+        videoId: 'EzGPmg4fFL8',
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          loop: 1,
+          mute: 1,
+          modestbranding: 1,
+          playsinline: 1,
+        },
+        events: {
+          onReady: onPlayerReady,
+        },
+      });
+    }
 
-  function onPlayerReady(event) {
-    // Uncomment the line below if you want the video to start playing immediately
-    // event.target.playVideo();
-  }
+    function onPlayerReady(event) {
+      // Uncomment the line below if you want the video to start playing immediately
+      // event.target.playVideo();
+    }
 
 
 

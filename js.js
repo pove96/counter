@@ -1,31 +1,39 @@
 
   // Create a variable to hold the YouTube video player
-  let player;
+  var player;
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('video-container', {
-        height: '100%',
-        width: '100%',
-        videoId: 'EzGPmg4fFL8',
-        playerVars: {
-          autoplay: 1,
-          controls: 0,
-          loop: 1,
-          mute: 1,
-          modestbranding: 1,
-          playsinline: 1,
-          start: 90,
-        },
-        events: {
-          onReady: onPlayerReady,
-        },
-      });
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('video-container', {
+      height: '100%',
+      width: '100%',
+      videoId: 'EzGPmg4fFL8',
+      playerVars: {
+        autoplay: 1,
+        controls: 0,
+        loop: 0,  // Set loop to 0
+        mute: 1,
+        modestbranding: 1,
+        playsinline: 1,
+        start: 90,
+      },
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange  // Add onStateChange event
+      },
+    });
+  }
+  
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+  
+  function onPlayerStateChange(event) {
+    // If the video has ended, restart it
+    if (event.data == YT.PlayerState.ENDED) {
+      player.seekTo(90);  // Set the starting time (in seconds) as needed
+      player.playVideo();
     }
-
-    function onPlayerReady(event) {
-      // Uncomment the line below if you want the video to start playing immediately
-      // event.target.playVideo();
-    }
+  }
 
 
 
